@@ -26,6 +26,7 @@ const UserSchema = new Schema({
 // hash user password before saving to database
 UserSchema.pre('save', function (next) {
     this.password = bcrypt.hashSync(this.password, saltRound)
+    next()
 })
 
 module.exports = mongoose.model("User", UserSchema)

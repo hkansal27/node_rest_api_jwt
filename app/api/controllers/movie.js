@@ -2,7 +2,7 @@ const movieModel = require('../models/movie');
 
 module.exports = {
     getAll: (req, res, next) => {
-        movieModel.findAll({}, (err, result) => {
+        movieModel.find({}, (err, result) => {
             if (err)
                 next(err);
             else {
@@ -36,7 +36,7 @@ module.exports = {
             if (err)
                 next(err)
             else {
-                res.json({message: 'success', data: {movie: result}})
+                res.json({message: 'success'})
             }
         })
     },
